@@ -1,0 +1,34 @@
+.letter {
+    margin: 5px;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+    font-size: 40px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.letter.active {
+    background-color: white;
+    color: #787c7e;
+    border: 2px solid #d3d6da;
+}
+
+.letter.correct {
+    background-color: #6aaa64;
+    color: white;
+}
+
+.letter.partial {
+    background-color: #c9b458;
+    color: white;
+}
+
+.letter.incorrect {
+    background-color: #787c7e;
+    color: white;
+}

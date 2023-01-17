@@ -1,0 +1,47 @@
+.candidates {
+	padding: 20px;
+}
+
+.heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.histogram {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 10px 0;
+	border: 2px solid #d3d6da;
+	padding: 10px;
+}
+
+.histogram .bar-container {
+	flex: 1 1 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.histogram .bar-container .bar-value {
+	width: 100%;
+	border-top: 1px solid #787c7e;
+	border-bottom: 1px solid #787c7e;
+	background-color: #d3d6da;
+}
+
+.histogram .bar-container .bar-key {
+	background-color: white;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+.candidate-container {
+	cursor: pointer;
+}
+
+.candidate-container:hover {
+	background-color: #d3d6da;
+}

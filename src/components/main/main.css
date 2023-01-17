@@ -1,0 +1,33 @@
+.main {
+	height: 100%;
+	overflow-y: hidden;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+.main .options-container,
+.main .game-container,
+.main .candidates-container {
+	flex: 1 1 0;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.main .options-container {
+	flex: 0 0 auto;
+	border-right: 2px solid grey;
+}
+
+.main .candidates-container {
+	flex: 0 0 auto;
+	border-left: 2px solid grey;
+}
+
+.loading {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+}
