@@ -6,20 +6,21 @@ import LetterState from '../models/letter-state';
 import Utilities from './utilities';
 
 export default class GameLogic {
-	static createGame = (answers: string[]) => {
-		const index = Utilities.randomNumber(answers.length);
-		const target = answers[index];
+	static createGame = (answers: string[] | null): GameModel => {
+		let target = null;
+		if (answers) {
+			const index = Utilities.randomNumber(answers.length);
+			target = answers[index];
+		}
 
-		const game: GameModel = {
+		return {
 			target: target,
 			guesses: [ GameLogic.createGuess('', GuessState.current) ],
 		};
-
-		return game;
 	}
 
-	static createGuess = (text: string, state: GuessState) => {
-		const guess: GuessModel = {
+	static createGuess = (text: string, state: GuessState): GuessModel => {
+		return {
 			state: state,
 			letters: [
 				text ? GameLogic.createLetter(text[0], LetterState.active) : GameLogic.createLetter('', LetterState.active),
@@ -29,17 +30,13 @@ export default class GameLogic {
 				text ? GameLogic.createLetter(text[4], LetterState.active) : GameLogic.createLetter('', LetterState.pending)
 			]
 		};
-
-		return guess;
 	}
 
-	static createLetter = (text: string, state: LetterState) => {
-		const letter: LetterModel = {
+	static createLetter = (text: string, state: LetterState): LetterModel => {
+		return {
 			text: text,
 			state: state
 		};
-
-		return letter;
 	}
 
 	static getGuessText = (guess: GuessModel) => {
@@ -140,11 +137,16 @@ export default class GameLogic {
 		} else {
 			// Correct, partial, or incorrect
 			guess.letters.forEach((letter, n) => {
-				if (letter.text === game.target[n]) {
-					letter.state = LetterState.correct;
-				} else if (game.target.includes(letter.text)) {
-					letter.state = LetterState.partial;
+				if (game.target) {
+					if (letter.text === game.target[n]) {
+						letter.state = LetterState.correct;
+					} else if (game.target.includes(letter.text)) {
+						letter.state = LetterState.partial;
+					} else {
+						letter.state = LetterState.incorrect;
+					}
 				} else {
+					// We're in solver mode
 					letter.state = LetterState.incorrect;
 				}
 			});

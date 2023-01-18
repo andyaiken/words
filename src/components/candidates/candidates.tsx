@@ -57,7 +57,7 @@ const Candidates = (props: Props) => {
 			const guess = GameLogic.createGuess(candidate, GuessState.candidate);
 			return (
 				<div key={candidate} className='candidate-container' onClick={() => props.select(candidate)}>
-					<Guess guess={guess} />
+					<Guess guess={guess} letterStateSelected={null} />
 				</div>
 			);
 		});

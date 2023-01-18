@@ -1,5 +1,11 @@
 .letter {
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letter .box {
     padding: 5px;
     height: 50px;
     width: 50px;
@@ -13,24 +19,28 @@
     color: white;
 }
 
-.letter.active {
+.letter .box.active {
     background-color: white;
     color: #787c7e;
     border: 2px solid #d3d6da;
 }
 
-.letter.pending {
+.letter .box.pending {
     background-color: #d3d6da;
 }
 
-.letter.correct {
+.letter .box.correct {
     background-color: #6aaa64;
 }
 
-.letter.partial {
+.letter .box.partial {
     background-color: #c9b458;
 }
 
-.letter.incorrect {
+.letter .box.incorrect {
     background-color: #787c7e;
+}
+
+.letter .selector {
+    margin: 5px;
 }

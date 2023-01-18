@@ -2,6 +2,8 @@ import { Component } from 'react';
 
 import GameLogic from '../../logic/game-logic';
 import GameModel from '../../models/game-model';
+import LetterModel from '../../models/letter-model';
+import LetterState from '../../models/letter-state';
 import Candidates from '../candidates/candidates';
 import Game from '../game/game';
 import OptionsBar from '../options-bar/options-bar';
@@ -95,6 +97,19 @@ export default class Main extends Component<Props, State> {
 		});
 	}
 
+	onNewSolver = () => {
+		this.setState({
+			game: GameLogic.createGame(null)
+		});
+	}
+
+	onLetterStateSelected = (letter: LetterModel, state: LetterState) => {
+		letter.state = state;
+		this.setState({
+			game: this.state.game
+		});
+	}	
+
 	onSelectGuess = (guess: string) => {
 		const game = this.state.game;
 		if (game) {
@@ -111,6 +126,7 @@ export default class Main extends Component<Props, State> {
 				<div className='options-container'>
 					<OptionsBar
 						newGame={this.onNewGame}
+						newSolver={this.onNewSolver}
 						toggleCandidates={this.toggleCandidates}
 					/>
 				</div>
@@ -119,6 +135,7 @@ export default class Main extends Component<Props, State> {
 				<div className='game-container'>
 					<Game
 						game={this.state.game}
+						letterStateSelected={this.onLetterStateSelected}
 					/>
 				</div>
 			);
