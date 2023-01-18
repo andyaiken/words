@@ -1,16 +1,15 @@
-import LetterState from '../../models/letter-state';
+import LetterModel from '../../models/letter-model';
 import './letter.css';
 
 interface Props {
-	letter: string;
-	state: LetterState;
+	letter: LetterModel;
 }
 
 const Letter = (props: Props) => {
-	const className = `letter ${props.state}`;
+	const className = `letter ${props.letter.state}`;
 	return (
 		<div className={className}>
-			{ props.letter }
+			{ props.letter.text }
 		</div>
 	);
 }

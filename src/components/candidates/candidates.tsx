@@ -26,16 +26,38 @@ const Candidates = (props: Props) => {
 		);
 	});
 
+	// Calculate the significance value for each letter at each position
+	const calculations = [
+		new Map<string, number>(),
+		new Map<string, number>(),
+		new Map<string, number>(),
+		new Map<string, number>(),
+		new Map<string, number>()
+	];
+	for (let n = 0; n < 5; ++n) {
+		letters.forEach(letter => {
+			const significance = GameLogic.getLetterSignificance(props.candidates, letter, n)
+			calculations[n].set(letter, significance);
+		});
+	};
+
+	// Calculate the fitness for each candidate
 	const fitness = new Map<string, number>();
 	props.candidates.forEach(candidate => {
-		fitness.set(candidate, GameLogic.getFitness(candidate, props.candidates));
+		const f = candidate
+			.split('')
+			.map((letter, n) => calculations[n].get(letter) ?? 0)
+			.reduce((prev, current) => prev + current, 0);
+		fitness.set(candidate, f);
 	});
+
 	const guesses = props.candidates
 		.sort((a, b) => (fitness.get(b) ?? 0) - (fitness.get(a) ?? 0))
 		.map(candidate => {
+			const guess = GameLogic.createGuess(candidate, GuessState.candidate);
 			return (
 				<div key={candidate} className='candidate-container' onClick={() => props.select(candidate)}>
-					<Guess guess={candidate} target={null} state={GuessState.candidate} />
+					<Guess guess={guess} />
 				</div>
 			);
 		});

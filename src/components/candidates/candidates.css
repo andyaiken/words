@@ -23,6 +23,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-end;
+	height: 65px;
 }
 
 .histogram .bar-container .bar-value {

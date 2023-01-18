@@ -1,4 +1,5 @@
 enum LetterState {
+	pending = 'pending',
 	active = 'active',
 	incorrect = 'incorrect',
 	partial = 'partial',

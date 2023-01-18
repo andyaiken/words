@@ -98,15 +98,7 @@ export default class Main extends Component<Props, State> {
 	onSelectGuess = (guess: string) => {
 		const game = this.state.game;
 		if (game) {
-			if (game.guesses[game.guesses.length - 1] === game.target) {
-				return;
-			}
-
-			game.guesses[game.guesses.length - 1] = guess;
-			if (guess !== game.target) {
-				game.guesses.push('');
-			}
-
+			GameLogic.addGuess(game, guess);
 			this.setState({
 				game: game
 			});
@@ -117,17 +109,25 @@ export default class Main extends Component<Props, State> {
 		if (this.state.game) {
 			const options = (
 				<div className='options-container'>
-					<OptionsBar newGame={this.onNewGame} toggleCandidates={this.toggleCandidates} />
+					<OptionsBar
+						newGame={this.onNewGame}
+						toggleCandidates={this.toggleCandidates}
+					/>
 				</div>
 			);
 			const game = (
 				<div className='game-container'>
-					<Game game={this.state.game} />
+					<Game
+						game={this.state.game}
+					/>
 				</div>
 			);
 			const candidates = (
 				<div className='candidates-container'>
-					<Candidates candidates={GameLogic.getCandidates(this.state.answers, this.state.guesses, this.state.game)} select={this.onSelectGuess} />
+					<Candidates
+						candidates={GameLogic.getCandidates(this.state.answers, this.state.game)}
+						select={this.onSelectGuess}
+					/>
 				</div>
 			);
 

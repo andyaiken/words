@@ -1,5 +1,7 @@
+import GuessModel from "./guess-model";
+
 export default interface GameModel {
 	target: string;
-	guesses: string[];
+	guesses: GuessModel[];
 }
 
