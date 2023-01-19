@@ -160,7 +160,7 @@ export default class GameLogic {
 		const absent: string[] = [];
 
 		game.guesses
-			.filter(guess => guess.state === GuessState.former)
+			.filter(guess => (guess.state === GuessState.former) || (guess.state === GuessState.correct))
 			.forEach(guess => {
 				guess.letters.forEach((letter, n) => {
 					switch (letter.state) {

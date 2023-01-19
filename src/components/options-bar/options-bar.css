@@ -1,6 +1,6 @@
 .options-bar {
 	height: 100%;
-	padding: 20px;
+	padding: 10px 20px;
     background-color: #d3d6da;
 	display: flex;
 	flex-direction: column;

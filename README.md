@@ -25,8 +25,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## To Do
-
-In the candidates list, show valid guesses as well as answers (but highlight the answers in some way)
-Allow the app to be used to help with Wordle

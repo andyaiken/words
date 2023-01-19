@@ -1,5 +1,8 @@
+import { Selector } from '../../controls';
+
 import LetterModel from '../../models/letter-model';
 import LetterState from '../../models/letter-state';
+
 import './letter.css';
 
 interface Props {
@@ -8,29 +11,29 @@ interface Props {
 }
 
 const Letter = (props: Props) => {
-	const callback = (state: LetterState) => {
+	const callback = (state: string) => {
 		if (props.letterStateSelected) {
-			props.letterStateSelected(props.letter, state);
+			props.letterStateSelected(props.letter, state as LetterState);
 		}
 	}
 
-	let options = null;
+	let selector = null;
 	if (props.letterStateSelected !== null) {
-		options = (
-			<div className='selector'>
-				<button onClick={() => callback(LetterState.correct)}>Y</button>
-				<button onClick={() => callback(LetterState.partial)}>?</button>
-				<button onClick={() => callback(LetterState.incorrect)}>N</button>
-			</div>
-		)
+		const options = [
+			{ id: LetterState.correct, text: 'Y' },
+			{ id: LetterState.partial, text: '?' },
+			{ id: LetterState.incorrect, text: 'N' }
+		]
+		selector = <Selector options={options} selectedID={props.letter.state} selectionChanged={id => callback(id)} />;
 	}
+
 	const className = `box ${props.letter.state}`;
 	return (
 		<div className='letter'>
 			<div className={className}>
 				{ props.letter.text }
 			</div>
-			{ options }
+			{ selector }
 		</div>
 	);
 }

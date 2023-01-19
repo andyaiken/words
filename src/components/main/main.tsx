@@ -142,7 +142,8 @@ export default class Main extends Component<Props, State> {
 			const candidates = (
 				<div className='candidates-container'>
 					<Candidates
-						candidates={GameLogic.getCandidates(this.state.answers, this.state.game)}
+						guesses={GameLogic.getCandidates(this.state.guesses, this.state.game)}
+						answers={GameLogic.getCandidates(this.state.answers, this.state.game)}
 						select={this.onSelectGuess}
 					/>
 				</div>

@@ -1,0 +1,28 @@
+.selector {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #d3d6da;
+	border-radius: 3px;
+}
+
+.selector .selector-option {
+	flex: 1 1 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    margin: 1px;
+    padding: 3px 5px;
+	border-radius: 2px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.selector .selector-option:hover,
+.selector .selector-option.selected {
+	background-color: #d3d6da;
+}
+
+.selector .selector-option.selected {
+	pointer-events: none;
+}

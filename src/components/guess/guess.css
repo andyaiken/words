@@ -2,6 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: 10px;
 }
 
 .guess.current,
@@ -21,4 +22,18 @@
 
 .guess.correct {
     border: 2px solid #6aaa64;
+}
+
+.guess.candidate-answer,
+.guess.guess.candidate-guess {
+	margin: 5px 0;
+	border-radius: 0;
+}
+
+.guess.candidate-answer {
+	background-color: #6aaa64;
+}
+
+.guess.guess.candidate-guess {
+    background-color: #d3d6da;
 }

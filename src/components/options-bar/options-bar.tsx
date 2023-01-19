@@ -11,7 +11,8 @@ const OptionsBar = (props: Props) => {
 		<div className='options-bar'>
 			<button className='option' onClick={props.newGame}>New Game</button>
 			<button className='option' onClick={props.newSolver}>New Solver</button>
-			<button className='option' onClick={props.toggleCandidates}>Possible Answers</button>
+			<hr/>
+			<button className='option' onClick={props.toggleCandidates}>Helper</button>
 		</div>
 	);
 }

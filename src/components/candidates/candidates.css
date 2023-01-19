@@ -1,11 +1,12 @@
 .candidates {
-	padding: 20px;
+	padding: 10px 20px;
 }
 
 .heading {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin: 10px 0;
 }
 
 .histogram {
@@ -41,8 +42,14 @@
 
 .candidate-container {
 	cursor: pointer;
+	margin: 5px 0;
+	border: 2px solid #ffffff;
+}
+
+.candidate-container.answer {
+	background-color: #6aaa64;
 }
 
 .candidate-container:hover {
-	background-color: #d3d6da;
+	border-color: #787c7e;
 }
