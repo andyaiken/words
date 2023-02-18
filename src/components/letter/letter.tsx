@@ -20,9 +20,9 @@ const Letter = (props: Props) => {
 	let selector = null;
 	if (props.letterStateSelected !== null) {
 		const options = [
-			{ id: LetterState.correct, text: 'Y' },
-			{ id: LetterState.partial, text: '?' },
-			{ id: LetterState.incorrect, text: 'N' }
+			{ id: LetterState.correct, content: <div className='option-correct'></div> },
+			{ id: LetterState.partial, content: <div className='option-partial'></div> },
+			{ id: LetterState.incorrect, content: <div className='option-incorrect'></div> }
 		]
 		selector = <Selector options={options} selectedID={props.letter.state} selectionChanged={id => callback(id)} />;
 	}

@@ -98,7 +98,7 @@ const Candidates = (props: Props) => {
 			</div>
 			<hr/>
 			<Selector
-				options={[ { id: 'all', text: 'Show All' }, { id: 'answers', text: 'Answers Only' } ]}
+				options={[ { id: 'all', content: 'Show All' }, { id: 'answers', content: 'Answers Only' } ]}
 				selectedID={showAnswersOnly ? 'answers' : 'all'}
 				selectionChanged={id => setShowAnswersOnly(id === 'answers')}
 			/>

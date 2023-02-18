@@ -11,8 +11,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    margin: 1px;
-    padding: 3px 5px;
+	border: 2px solid white;
 	border-radius: 2px;
 	font-size: 12px;
 	cursor: pointer;
@@ -20,7 +19,7 @@
 
 .selector .selector-option:hover,
 .selector .selector-option.selected {
-	background-color: #d3d6da;
+	border-color: #d3d6da;
 }
 
 .selector .selector-option.selected {

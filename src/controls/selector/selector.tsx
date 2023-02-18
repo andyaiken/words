@@ -1,7 +1,7 @@
 import './selector.css';
 
 interface Props {
-	options: { id: string; text: string; }[];
+	options: { id: string; content: JSX.Element | string; }[];
 	selectedID: string | null;
 	selectionChanged: (id: string) => void;
 }
@@ -18,7 +18,7 @@ const Selector = (props: Props) => {
 		const className = (props.selectedID === option.id) ? 'selector-option selected' : 'selector-option';
 		return (
 			<div key={option.id} className={className} onClick={e => selectionChanged(e.nativeEvent, option.id)}>
-				{ option.text }
+				{ option.content }
 			</div>
 		);
 	})
